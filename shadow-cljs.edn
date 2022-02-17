@@ -23,7 +23,8 @@
    :modules
    {:app {:init-fn a03-alef.core/init}}
    :devtools
-   {:preloads []}
+   {:preloads []
+    :http-root "resources/public"}
    :dev
    {:compiler-options
     {:closure-defines
