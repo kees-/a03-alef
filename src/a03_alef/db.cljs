@@ -1,4 +1,6 @@
 (ns a03-alef.db)
 
 (def default-db
-  {:name "re-frame"})
+  {:name "a chip of your mug fallen on the floor"
+   :path-box-content ""
+   :children {}})
