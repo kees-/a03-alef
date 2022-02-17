@@ -18,3 +18,8 @@
  ::path
  (fn [db [_ content]]
    (router/set-path content)))
+
+(re-frame/reg-event-db
+ ::boop
+ (fn [db [_ pathname piece]]
+   (assoc-in db [:children] (router/scoop-path pathname piece))))
