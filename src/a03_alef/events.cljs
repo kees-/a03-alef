@@ -13,3 +13,8 @@
  ::path-box-input
  (fn [db [_ input]]
    (assoc-in db [:path-box-content] input)))
+
+(re-frame/reg-event-db
+ ::path
+ (fn [db [_ content]]
+   (router/set-path content)))
