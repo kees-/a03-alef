@@ -10,3 +10,15 @@
         :children {"u" :though
                    "v" :there
                    "w" :these}}})
+
+(defn set-path
+  [path]
+  (set! (.. js/window -location -pathname) (str "/" path)))
+
+(defn scoop-path
+  [arg piece]
+  (->> arg
+       set-path
+       rest
+       (get-in routes)
+       piece))
