@@ -4,9 +4,7 @@
    [re-frame.core :as re-frame]
    [a03-alef.events :as events]
    [a03-alef.views :as views]
-   [a03-alef.config :as config]
-   ))
-
+   [a03-alef.config :as config]))
 
 (defn dev-setup []
   (when config/debug?

@@ -1,6 +1,6 @@
 {:nrepl {:port 8777}
 
- 
+
 
  :source-paths ["src" "test"]
 
@@ -26,4 +26,4 @@
    :dev
    {:compiler-options
     {:closure-defines
-     { }}}}}}
+     {}}}}}}
