@@ -12,3 +12,12 @@ pom.xml.asc
 .lein-failures
 .nrepl-port
 .cpcache/
+
+# Remove some dev files
+/resources/public/css/screen.css
+/resources/public/js/compiled
+.shadow-cljs
+node_modules
+
+# MacOS
+.DS_Store
