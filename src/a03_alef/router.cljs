@@ -22,3 +22,10 @@
        rest
        (get-in routes)
        piece))
+
+(comment
+ (->> "a"
+      set-path
+      rest
+      (get-in routes)
+      :content))
