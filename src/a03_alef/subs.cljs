@@ -6,3 +6,13 @@
  ::name
  (fn [db]
    (:name db)))
+
+(re-frame/reg-sub
+ ::path-box-input
+ (fn [db]
+   (get-in db [:path-box-content])))
+
+(re-frame/reg-sub
+ ::children
+ (fn [db]
+   (get-in db [:children])))
