@@ -8,3 +8,8 @@
  ::initialize-db
  (fn [_ _]
    db/default-db))
+
+(re-frame/reg-event-db
+ ::path-box-input
+ (fn [db [_ input]]
+   (assoc-in db [:path-box-content] input)))
