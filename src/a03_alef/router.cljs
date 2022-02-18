@@ -11,6 +11,12 @@
                    "v" :there
                    "w" :these}}})
 
+(defn navigate
+  ([path]
+   (into [:children] (interleave path (repeat :children))))
+  ([path & finals]
+   (-> path navigate butlast (concat finals))))
+
 (defn set-path
   [path]
   (set! (.. js/window -location -pathname) (str "/" path)))
