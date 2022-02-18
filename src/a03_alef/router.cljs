@@ -15,6 +15,13 @@
   [path]
   (set! (.. js/window -location -pathname) (str "/" path)))
 
+(defn current-path
+  []
+  (-> js/window
+      .-location
+      .-pathname
+      rest))
+
 (defn scoop-path
   [arg piece]
   (->> arg
