@@ -14,11 +14,13 @@
                                             (.. % -target -value)])}]
    [:input {:type :button
             :value "Submit path"
+            ;REFACTOR
             :on-click #(re-frame/dispatch [::events/boop value :children])}]])
 
 (defn list-children
   []
   [:div>ul.b
+   ;REFACTOR
    (for [li (-> @(re-frame/subscribe [::subs/children]) keys)]
      [:li {:key li} (.toUpperCase li)])])
 

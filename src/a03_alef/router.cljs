@@ -2,6 +2,7 @@
   (:require [cemerick.url :as url]))
 
 (def routes
+  ;REFACTOR
   {"a" {:content "My acka acka"
         :children {"x" :this
                    "y" :that
@@ -33,5 +34,6 @@
   (->> arg
        set-path
        rest
+       ;REFACTOR
        (get-in routes)
        piece))

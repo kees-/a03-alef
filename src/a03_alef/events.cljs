@@ -15,11 +15,14 @@
    (assoc-in db [:path-box-content] input)))
 
 (re-frame/reg-event-db
+ ; THIS IS A BAD FN!
+ ; USE FX?
  ::path
  (fn [db [_ content]]
    (router/set-path content)))
 
 (re-frame/reg-event-db
+ ;REFACTOR
  ::boop
  (fn [db [_ pathname piece]]
    (assoc-in db [:children] (router/scoop-path pathname piece))))

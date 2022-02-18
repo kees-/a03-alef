@@ -13,6 +13,7 @@
    (get-in db [:path-box-content])))
 
 (re-frame/reg-sub
+ ;REFACTOR
  ::children
  (fn [db]
    (get-in db [:children])))
