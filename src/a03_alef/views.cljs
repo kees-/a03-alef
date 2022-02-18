@@ -14,8 +14,7 @@
                                             (.. % -target -value)])}]
    [:input {:type :button
             :value "Submit path"
-            :on-click #(re-frame/dispatch
-                        [::events/boop value :children])}]])
+            :on-click #(re-frame/dispatch [::events/boop value :children])}]])
 
 (defn list-children
   []
