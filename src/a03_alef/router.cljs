@@ -2,21 +2,27 @@
   (:require [cemerick.url :as url]))
 
 (def routes
-  ;REFACTOR
-  {"a" {:content "My acka acka"
-        :children {"x" :this
-                   "y" :that
-                   "z" :then}}
-   "b" {:content "Baca baca.. taca"
-        :children {"u" :though
-                   "v" :there
-                   "w" :these}}})
+  {:content []
+   :children {"c" {:content [:p "this is this is that"]
+                   :children {"a" {:content []
+                                   :children {}}
+                              "1" {:content []
+                                   :children {}}}}
+              "e" {:content [:p "now..."]
+                   :children {}}
+              "g" {:content [:article "but this is how we made it happen"]
+                   :children {}}
+              "i" {:content []
+                   :children {"å" {:content [:p "yaca"]
+                                   :children {}}
+                              "i" {:content []
+                                   :children {}}}}}})
 
 (defn navigate
   ([path]
-   (into [:children] (interleave path (repeat :children))))
+   (interleave (repeat :children) path))
   ([path & finals]
-   (-> path navigate butlast (concat finals))))
+   (concat (navigate path) finals)))
 
 (defn set-path
   [path]
@@ -30,10 +36,9 @@
       rest))
 
 (defn scoop-path
-  [arg piece]
-  (->> arg
+  [path]
+  (->> path
        set-path
        rest
-       ;REFACTOR
-       (get-in routes)
-       piece))
+       navigate
+       (get-in routes)))
