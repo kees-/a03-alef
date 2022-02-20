@@ -15,13 +15,12 @@
   [value]
   [:div.panel
    [:input {:type :text
-            :value value
+            :value @value
             :on-change #(re-frame/dispatch [::events/path-box-input
                                             (.. % -target -value)])}]
    [:input {:type :button
             :value "Submit path"
-            ;REFACTOR
-            :on-click #(re-frame/dispatch [::events/refocus-path value])}]])
+            :on-click #(re-frame/dispatch [::events/refocus-path @value])}]])
 
 (defn list-children
   []
@@ -44,9 +43,8 @@
 
 (defn main-panel []
   (let [name (re-frame/subscribe [::subs/name])
-        value (re-frame/subscribe [::subs/path-box-input])]
     [:div.i
      [:h1 @name]
-     [input-panel @value]
      [list-children]
+     [input-panel value]
      [info-panel]]))
