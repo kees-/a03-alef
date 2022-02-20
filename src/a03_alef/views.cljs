@@ -5,6 +5,12 @@
    [a03-alef.events :as events]
    [a03-alef.router :as router]))
 
+(defn hr
+  []
+  [:hr {:style {:border "none"
+                :height ".1px"
+                :background-color "silver"}}])
+
 (defn input-panel
   [value]
   [:div.panel
