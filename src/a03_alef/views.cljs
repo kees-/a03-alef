@@ -23,12 +23,12 @@
             :on-click #(re-frame/dispatch [::events/refocus-path @value])}]])
 
 (defn list-children
-  []
-  (let [content (re-frame/subscribe [::subs/all-content])
-        children (-> @content :children keys)]
+  [content]
+  (let [children (-> @content :children keys)]
     [:div
+     {:style {:float "left"}}
      (if (nil? children)
-       [:span.b "The current node has no children."]
+       [:span.b.t "The current node has no children."]
        [:ul.b
         (for [li children]
           [:li {:key li} (.toUpperCase li)])])]))
@@ -52,8 +52,15 @@
 
 (defn main-panel []
   (let [name (re-frame/subscribe [::subs/name])
-    [:div.i
+        value (re-frame/subscribe [::subs/path-box-input])
+        content (re-frame/subscribe [::subs/all-content])]
+    [:div#wrapper.i
      [:h1 @name]
-     [list-children]
      [input-panel value]
+     [hr]
+     [:div
+      {:style {:overflow "hidden"}}
+      [list-children content]
+      [content-display content]]
+     [hr]
      [info-panel]]))
