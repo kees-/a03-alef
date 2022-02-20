@@ -33,6 +33,15 @@
         (for [li children]
           [:li {:key li} (.toUpperCase li)])])]))
 
+(defn content-display
+  [content]
+  (let [display (-> @content :content)]
+    [:div.b
+     {:style {:float "left"}}
+     (if (or (nil? display) (empty? display))
+       [:span.t "There is no content at the current node."]
+       display)]))
+
 (defn info-panel
   []
   [:div.b
