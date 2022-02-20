@@ -4,9 +4,6 @@ html, body {
   background: black;
 }
 
-.i {
-  color: ivory;
-}
 
 .b {
   display: inline-block;
@@ -15,7 +12,19 @@ html, body {
   border: 1px solid antiquewhite;
 }
 
+.i {
+  color: ivory;
+}
+
+.t {
+  color: thistle;
+}
+
 .panel input {
   padding: 4px;
   margin: 6px;
+}
+
+#wrapper {
+  display: inline-block;
 }
