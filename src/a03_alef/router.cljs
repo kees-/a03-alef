@@ -12,7 +12,7 @@
                    :children {}}
               "g" {:content [:article "but this is how we made it happen"]
                    :children {}}
-              "i" {:content []
+              "i" {:content [:img {:src "/img/smlxl.png"}]
                    :children {"å" {:content [:p "yaca"]
                                    :children {}}
                               "i" {:content []
