@@ -15,6 +15,12 @@
 (defn input-panel
   [value]
   [:div.panel
+   [:input {:type :button
+            :value "Back"
+            :on-click #(->> (router/current-path)
+                            butlast
+                            (reduce str)
+                            router/set-path)}]
    [:input {:type :text
             :value @value
             :on-change #(re-frame/dispatch [::events/path-box-input
