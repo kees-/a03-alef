@@ -1,0 +1,15 @@
+{:content []
+ :children {"c" {:content [:p "this is this is that"]
+                 :children {"a" {:content []
+                                 :children {}}
+                            "1" {:content []
+                                 :children {}}}}
+            "e" {:content [:p "now..."]
+                 :children {}}
+            "g" {:content [:article "but this is how we made it happen"]
+                 :children {}}
+            "i" {:content [:img {:src "/img/smlxl.png"}]
+                 :children {"å" {:content [:p "yaca"]
+                                 :children {}}
+                            "i" {:content []
+                                 :children {}}}}}}
