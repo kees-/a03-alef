@@ -10,6 +10,7 @@
   []
   [:hr {:style {:border "none"
                 :height ".1px"
+                :margin "10px 15px"
                 :background-color "silver"}}])
 
 (defn input-panel
