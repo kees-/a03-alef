@@ -5,4 +5,5 @@
 (def default-db
   {:name "Chip of your mug on the floor"
    :path-box-content ""
+   :base-content nil
    :content (->> (router/current-path) router/navigate (get-in router/routes))})
