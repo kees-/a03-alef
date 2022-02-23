@@ -5,9 +5,7 @@
  :source-paths ["src" "test"]
 
  :dependencies
- [[cljs-ajax "0.8.4"]
-  [com.cemerick/url "0.1.1"]
-  [reagent "1.1.0"]
+ [[reagent "1.1.0"]
   [re-frame "1.2.0"]
 
   [binaryage/devtools "1.0.4"]]
