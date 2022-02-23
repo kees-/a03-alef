@@ -58,6 +58,31 @@
         cljs.pprint/pprint
         with-out-str)]])
 
+(defn cap
+  [content]
+  (let [display (-> @content :content)]
+    [:div.b
+     (if (or (nil? display) (empty? display))
+       [:span.t "There is no content at the current node."]
+       display)]))
+
+(defn brick
+  [content]
+  [:a.a
+   {:href (str (.. js/window -location -pathname) content)}
+   [:li.brick (.toUpperCase content)]])
+
+(defn post
+  [content]
+  (let [children (-> @content :children keys)]
+    [:div.b
+     [cap content]
+     (if (nil? children)
+       [:span.b.t "There are no children to populate this wythe."]
+       [:ul.wythe
+        (for [li children]
+          ^{:key li} [brick li])])]))
+
 ;; ========== COMPONENT ASSEMBLY ===============================================
 (defn main-panel []
   (let [name (re-frame/subscribe [::subs/name])
@@ -65,11 +90,17 @@
         content (re-frame/subscribe [::subs/all-content])]
     [:div#wrapper.i
      [:h1 @name]
-     [input-panel value]
      [hr]
      [:div
-      {:style {:overflow "hidden"}}
-      [list-children content]
-      [content-display content]]
-     [hr]
-     [info-panel]]))
+      {:style {:display "flex"
+               :flex-flow "row wrap"}}
+      [:div
+       [input-panel value]
+       [post content]]
+      [:div
+       [:div
+        {:style {:overflow "hidden"}}
+        [list-children content]
+        [content-display content]]
+       [hr]
+       [info-panel]]]]))
