@@ -15,7 +15,6 @@
    (assoc-in db [:path-box-content] input)))
 
 (re-frame/reg-event-db
- ;REFACTOR
  ::refocus-path
  (fn [db [_ pathname]]
    (assoc-in db [:content] (router/scoop-path pathname))))

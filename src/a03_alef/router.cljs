@@ -1,5 +1,6 @@
 (ns a03-alef.router)
 
+;; ========== INLINE DATA ======================================================
 (def routes
   {:content []
    :children {"c" {:content [:p "this is this is that"]
@@ -17,6 +18,7 @@
                               "i" {:content []
                                    :children {}}}}}})
 
+;; ========== DEAL WITH DATA TREE AND URL PATH =================================
 (defn navigate
   ([path]
    (interleave (repeat :children) path))

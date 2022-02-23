@@ -5,6 +5,7 @@
    [a03-alef.events :as events]
    [a03-alef.router :as router]))
 
+;; ========== INDIVIDUAL COMPONENTS ============================================
 (defn hr
   []
   [:hr {:style {:border "none"
@@ -50,6 +51,7 @@
         cljs.pprint/pprint
         with-out-str)]])
 
+;; ========== COMPONENT ASSEMBLY ===============================================
 (defn main-panel []
   (let [name (re-frame/subscribe [::subs/name])
         value (re-frame/subscribe [::subs/path-box-input])
