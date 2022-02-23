@@ -1,5 +1,4 @@
-(ns a03-alef.router
-  (:require [cemerick.url :as url]))
+(ns a03-alef.router)
 
 (def routes
   {:content []
