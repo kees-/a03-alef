@@ -19,6 +19,10 @@
                                    :children {}}}}}})
 
 ;; ========== DEAL WITH DATA TREE AND URL PATH =================================
+(defn deslash
+  [coll]
+  (filter #(not= % "/") coll))
+
 (defn navigate
   ([path]
    (interleave (repeat :children) path))
@@ -34,7 +38,8 @@
   (-> js/window
       .-location
       .-pathname
-      rest))
+      rest
+      deslash))
 
 (defn scoop-path
   [path]
