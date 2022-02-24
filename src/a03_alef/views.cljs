@@ -66,6 +66,7 @@
        [:span.t "There is no content at the current node."]
        display)]))
 
+;; TURN THIS LINK INTO A BUTTON!
 (defn brick
   [content]
   [:a.a
