@@ -52,6 +52,7 @@
 ;; ========== HASHMODE =========================================================
 (defn set-hash
   [path]
+  (cljs.pprint/pprint (str "Hash setting arg is: " path))
   (set! (.. js/window -location -hash) (str "#" path)))
 
 (defn current-hash
