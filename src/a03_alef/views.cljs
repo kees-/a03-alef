@@ -67,6 +67,8 @@
        display)]))
 
 ;; TURN THIS LINK INTO A BUTTON!
+;  ->> Done!
+;; NOW, PARSE THE SUB-HASH CORRECTLY
 (defn brick
   [content]
   [:a.a
