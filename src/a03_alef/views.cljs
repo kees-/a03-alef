@@ -18,17 +18,17 @@
   [:div.panel
    [:input {:type :button
             :value "Back"
-            :on-click #(->> (router/current-path)
+            :on-click #(->> (router/current-hash)
                             butlast
                             (reduce str)
-                            router/set-path)}]
+                            router/set-hash)}]
    [:input {:type :text
             :value @value
             :on-change #(re-frame/dispatch [::events/path-box-input
                                             (.. % -target -value)])}]
    [:input {:type :button
             :value "Submit path"
-            :on-click #(re-frame/dispatch [::events/refocus-path @value])}]])
+            :on-click #(re-frame/dispatch [::events/refocus-hash @value])}]])
 
 (defn list-children
   [content]
@@ -69,7 +69,7 @@
 (defn brick
   [content]
   [:a.a
-   {:href (str (.. js/window -location -pathname) content)}
+   {:href (str "#" (.. js/window -location -hash) content)}
    [:li.brick (.toUpperCase content)]])
 
 (defn post
