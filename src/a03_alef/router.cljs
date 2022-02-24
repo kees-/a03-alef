@@ -48,3 +48,23 @@
        rest
        navigate
        (get-in routes)))
+
+;; ========== HASHMODE =========================================================
+(defn set-hash
+  [path]
+  (set! (.. js/window -location -hash) (str "#" path)))
+
+(defn current-hash
+  []
+  (-> js/window
+      .-location
+      .-hash
+      rest))
+
+(defn scoop-hash
+  [path]
+  (->> path
+       set-hash
+       rest
+       navigate
+       (get-in routes)))

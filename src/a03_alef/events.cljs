@@ -18,3 +18,10 @@
  ::refocus-path
  (fn [db [_ pathname]]
    (assoc-in db [:content] (router/scoop-path pathname))))
+
+;; ========== HASHMODE =========================================================
+
+(re-frame/reg-event-db
+ ::refocus-hash
+ (fn [db [_ pathname]]
+   (assoc-in db [:content] (router/scoop-hash pathname))))
