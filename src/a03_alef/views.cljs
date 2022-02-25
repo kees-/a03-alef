@@ -18,10 +18,10 @@
   [:div.panel
    [:input {:type :button
             :value "Back"
-            :on-click #(->> (router/current-hash)
-                            butlast
-                            (reduce str)
-                            router/set-hash)}]
+            :on-click #(re-frame/dispatch [::events/refocus-hash
+                                           (->> (router/current-hash)
+                                                butlast
+                                                (reduce str))])}]
    [:input {:type :text
             :value @value
             :on-change #(re-frame/dispatch [::events/path-box-input
