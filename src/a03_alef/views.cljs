@@ -68,11 +68,12 @@
 
 (defn brick
   [content]
-  [:a.a
-   {:on-click #(re-frame/dispatch [::events/refocus-hash
-                                   (str (.. js/window -location -hash)
-                                        content)])}
-   [:li.brick (.toUpperCase content)]])
+  (let [value (-> (.. js/window -location -hash)
+                  (clojure.string/replace #"#" "")
+                  (str content))]
+    [:a.a
+     {:on-click #(re-frame/dispatch [::events/refocus-hash value])}
+     [:li.brick (.toUpperCase content)]]))
 
 (defn post
   [content]
