@@ -66,13 +66,9 @@
        [:span.t "There is no content at the current node."]
        display)]))
 
-;; TURN THIS LINK INTO A BUTTON!
-;  ->> Done!
-;; NOW, PARSE THE SUB-HASH CORRECTLY
 (defn brick
   [content]
   [:a.a
-   ; {:href (str "#" (.. js/window -location -hash) content)}
    {:on-click #(re-frame/dispatch [::events/refocus-hash
                                    (str (.. js/window -location -hash)
                                         content)])}
