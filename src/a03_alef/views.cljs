@@ -71,6 +71,7 @@
   (let [value (-> (.. js/window -location -hash)
                   (clojure.string/replace #"#" "")
                   (str content))]
+    (cljs.pprint/pprint (str "Brick value: " value))
     [:a.a
      {:on-click #(re-frame/dispatch [::events/refocus-hash value])}
      [:li.brick (.toUpperCase content)]]))
