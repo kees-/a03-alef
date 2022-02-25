@@ -97,6 +97,8 @@
       {:style {:display "flex"
                :flex-flow "row wrap"}}
       [:div
+       {:style {:min-width "450px"
+                :min-height "450px"}}
        [input-panel value]
        [post content]]
       [:div
