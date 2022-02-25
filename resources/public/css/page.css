@@ -55,6 +55,8 @@ html, body {
   color: inherit;
   background: inherit;
   box-shadow: inherit;
+  cursor: pointer;
+  user-select: none;
 }
 
 .panel input {
