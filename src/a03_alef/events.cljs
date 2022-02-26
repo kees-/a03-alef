@@ -23,9 +23,4 @@
 (re-frame/reg-event-db
  ::refocus-hash
  (fn [db [_ pathname]]
-   (cljs.pprint/pprint
-    (str "(re-frame/dispatch [::events/refocus-hash " pathname "])"))
-   (cljs.pprint/pprint
-    (str "The current hash (before refocus) is "
-         (.. js/window -location -hash)))
    (assoc-in db [:content] (router/scoop-hash pathname))))
