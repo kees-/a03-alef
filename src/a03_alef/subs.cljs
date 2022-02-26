@@ -8,9 +8,9 @@
    (:name db)))
 
 (re-frame/reg-sub
- ::path-box-input
+ ::hash-entry
  (fn [db]
-   (get-in db [:path-box-content])))
+   (get-in db [:hash-input])))
 
 (re-frame/reg-sub
  ::all-content

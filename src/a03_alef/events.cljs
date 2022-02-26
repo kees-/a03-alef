@@ -10,9 +10,9 @@
    db/default-db))
 
 (re-frame/reg-event-db
- ::path-box-input
+ ::hash-entry
  (fn [db [_ input]]
-   (assoc-in db [:path-box-content] input)))
+   (assoc-in db [:hash-input] input)))
 
 ;; ========== HASH MGMT ========================================================
 (re-frame/reg-event-db

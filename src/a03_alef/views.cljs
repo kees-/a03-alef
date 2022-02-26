@@ -24,7 +24,7 @@
                                                 (reduce str))])}]
    [:input {:type :text
             :value @value
-            :on-change #(re-frame/dispatch [::events/path-box-input
+            :on-change #(re-frame/dispatch [::events/hash-entry
                                             (.. % -target -value)])}]
    [:input {:type :button
             :value "Submit path"
@@ -89,7 +89,7 @@
 ;; ========== COMPONENT ASSEMBLY ===============================================
 (defn main-panel []
   (let [name (re-frame/subscribe [::subs/name])
-        value (re-frame/subscribe [::subs/path-box-input])
+        value (re-frame/subscribe [::subs/hash-entry])
         content (re-frame/subscribe [::subs/all-content])]
     [:div#wrapper.i
      [:h1 @name]
