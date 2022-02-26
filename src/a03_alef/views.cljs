@@ -18,10 +18,12 @@
   [:div.panel
    [:input {:type :button
             :value "Back"
-            :on-click #(re-frame/dispatch [::events/refocus-hash
-                                           (->> (router/current-hash)
-                                                butlast
-                                                (reduce str))])}]
+            :on-click (fn [] (re-frame/dispatch [::events/refocus-hash
+                                                 (->> (router/current-hash)
+                                                      (reduce str)
+                                                      js/decodeURI
+                                                      butlast
+                                                      (reduce str))]))}]
    [:input {:type :text
             :value @value
             :on-change #(re-frame/dispatch [::events/hash-entry
