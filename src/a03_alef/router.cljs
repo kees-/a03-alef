@@ -33,27 +33,7 @@
   ([path & finals]
    (concat (navigate path) finals)))
 
-(defn set-path
-  [path]
-  (set! (.. js/window -location -pathname) (str "/" path)))
-
-(defn current-path
-  []
-  (-> js/window
-      .-location
-      .-pathname
-      rest
-      deslash))
-
-(defn scoop-path
-  [path]
-  (->> path
-       set-path
-       rest
-       navigate
-       (get-in routes)))
-
-;; ========== HASHMODE =========================================================
+;; ========== HASH MGMT ========================================================
 (defn set-hash
   [path]
   (set! (.. js/window -location -hash) (str "#" path)))

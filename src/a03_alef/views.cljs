@@ -66,35 +66,6 @@
        [:span.t "There is no content at the current node."]
        display)]))
 
-; (defn brick
-;   [content]
-;   (let [value (-> (.. js/window -location -hash)
-;                   (clojure.string/replace #"#" "")
-;                   (str content))]
-;     (cljs.pprint/pprint (str "Brick value: " value))
-;     [:a.a
-;      {:on-click #(re-frame/dispatch [::events/refocus-hash value])}
-;      [:li.brick (.toUpperCase content)]]))
-;
-;; GIVE BRICKS DIFFERENT ARGUMENT STRUCTURE.
-;  Sub-bricks with the superficially same value do not re-render,
-;  thus having no effect.
-;  e.g E->E->E cannot be entered.
-;; IDEA
-;  Change the hash-locating logic from the actual brick to its arguments.
-;  Probably just use router/current-hash with a db val appended as the argument.
-;  In the actual brick value, just use a judicious (last) ?
-; (defn post
-;   [content]
-;   (let [children (-> @content :children keys)]
-;     [:div.b
-;      [cap content]
-;      (if (nil? children)
-;        [:span.b.t "There are no children to populate this wythe."]
-;        [:ul.wythe
-;         (for [li children]
-;           ^{:key li} [brick li])])]))
-
 (defn brick
   [path condensed]
   (let [address (last path)]

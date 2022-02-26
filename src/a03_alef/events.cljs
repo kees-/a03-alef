@@ -14,12 +14,7 @@
  (fn [db [_ input]]
    (assoc-in db [:path-box-content] input)))
 
-(re-frame/reg-event-db
- ::refocus-path
- (fn [db [_ pathname]]
-   (assoc-in db [:content] (router/scoop-path pathname))))
-
-;; ========== HASHMODE =========================================================
+;; ========== HASH MGMT ========================================================
 (re-frame/reg-event-db
  ::refocus-hash
  (fn [db [_ pathname]]
