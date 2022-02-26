@@ -3,11 +3,16 @@
 ;; ========== INLINE DATA ======================================================
 (def routes
   {:content []
-   :children {"c" {:content [:h3 "this + that"]
-                   :children {"a" {:content []
-                                   :children {}}
-                              "1" {:content []
-                                   :children {}}}}
+   :children {\c {:content [:h3 "this + that"]
+                  :children {"a" {:content []
+                                  :children {}}
+                             \b {:content [:h4 {:style {:color "limegreen"}}
+                                           "Go best friend"]
+                                 :children {\∑ {:content
+                                                [:img {:src "/img/slds.png"}]
+                                                :children {}}}}
+                             "1" {:content []
+                                  :children {}}}}
               "e" {:content [:p "now..."]
                    :children {"e" {:content []
                                    :children {"e" {:content []
