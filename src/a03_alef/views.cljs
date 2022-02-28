@@ -91,7 +91,7 @@
        [:span.b.t "There are no children to populate this wythe."]
        [:ul.wythe
         (for [child children
-              :let [steps (conj (vec (router/current-hash)) child)
+              :let [steps (-> (router/current-hash) vec (conj child))
                     condensed (reduce str steps)]]
           ^{:key condensed} [brick steps condensed])])]))
 
