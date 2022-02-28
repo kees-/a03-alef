@@ -112,9 +112,9 @@
        [input-panel value]
        [wythe content]]
       [:div
-       [:div
-        {:style {:overflow "hidden"}}
-        [list-children content]
-        [content-display content]]
-       [hr]
+       ; [:div
+       ;  {:style {:overflow "hidden"}}
+       ;  [list-children content]
+       ;  [content-display content]]
+       ; [hr]
        [info-panel]]]]))
