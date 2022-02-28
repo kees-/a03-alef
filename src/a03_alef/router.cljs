@@ -1,5 +1,3 @@
-(ns a03-alef.router)
-
 ;; ========== INLINE DATA ======================================================
 ;; Needs to be externalized!
 ;  The accepted structure is:
@@ -33,6 +31,10 @@
                                    :children {}}
                               "i" {:content []
                                    :children {}}}}}})
+(ns a03-alef.router
+  (:require
+   [re-frame.core :as re-frame]
+   [a03-alef.subs :as subs]))
 
 ;; ========== DEAL WITH DATA TREE AND URL PATH =================================
 (defn navigate
