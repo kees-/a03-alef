@@ -1,6 +1,13 @@
 (ns a03-alef.router)
 
 ;; ========== INLINE DATA ======================================================
+;; Needs to be externalized!
+;  The accepted structure is:
+;  Key: single alphanumeral as STRING or CHAR
+;  Value: MAP containing :content VECTOR, :children MAP
+;    :content is a hiccup vector or other DOM component
+;    :children is a MAP with structure isomorphic to root
+;  Todo: add a third child :metadata as a MAP of node display options
 (def routes
   {:content []
    :children {\c {:content [:h3 "this + that"]
@@ -29,6 +36,7 @@
 
 ;; ========== DEAL WITH DATA TREE AND URL PATH =================================
 (defn navigate
+  "Accepts a seq of chars and returns a seq of keys to navigate tree data."
   ([path]
    (interleave (repeat :children) path))
   ([path & finals]
@@ -36,10 +44,12 @@
 
 ;; ========== HASH MGMT ========================================================
 (defn set-hash
+  "Sets hash-state in the active URI to the given string."
   [path]
   (set! (.. js/window -location -hash) (str "#" path)))
 
 (defn current-hash
+  "(rest) on a hash string will strip the hash and separate all chars to a seq."
   []
   (-> js/window
       .-location
