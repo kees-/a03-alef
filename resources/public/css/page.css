@@ -46,6 +46,12 @@ html, body {
   max-width: 200px;
 }
 
+.ip {
+  white-space: pre;
+  padding: 0.2rem;
+  font-size: 0.75rem;
+}
+
 .sh {
   color: silver;
   margin: .75rem 0 .25rem 0;

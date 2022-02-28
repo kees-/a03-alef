@@ -5,12 +5,18 @@
                            \b {:content [:h4 {:style {:color "limegreen"}}
                                          "Go best friend"]
                                :children {\∑ {:content
-                                              [:img {:src "/img/slds.png"}]
+                                              [:img {:src "/media/slds.png"}]
                                               :children {}}
                                           \木 {:content []
                                               :children {}}}}
                            "1" {:content []
-                                :children {}}}}
+                                :children {"z" {:content
+                                                [:video {:src "/media/ps22.mp4"
+                                                         :controls "true"
+                                                         :width "640"
+                                                         :type "video/mp4"
+                                                         :loop "true"}]
+                                                :children {}}}}}}
             "e" {:content [:p "now..."]
                  :children {"e" {:content []
                                  :children {"e" {:content []
@@ -21,7 +27,7 @@
                                  :children []}}}
             "g" {:content [:article "but this is how we made it happen"]
                  :children {}}
-            "i" {:content [:img {:src "/img/smlxl.png"}]
+            "i" {:content [:img {:src "/media/smlxl.png"}]
                  :children {"å" {:content [:p "yaca"]
                                  :children {}}
                             "i" {:content []
