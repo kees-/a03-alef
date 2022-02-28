@@ -64,4 +64,4 @@
        set-hash
        rest
        navigate
-       (get-in routes)))
+       (get-in @(re-frame/subscribe [::subs/base-content]))))
