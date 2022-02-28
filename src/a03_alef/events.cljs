@@ -10,6 +10,11 @@
    db/default-db))
 
 (re-frame/reg-event-db
+ ::base-content
+ (fn [db [_ input]]
+   (assoc-in db [:base-content] input)))
+
+(re-frame/reg-event-db
  ::hash-entry
  (fn [db [_ input]]
    (assoc-in db [:hash-input] input)))

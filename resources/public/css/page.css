@@ -46,6 +46,13 @@ html, body {
   max-width: 200px;
 }
 
+.sh {
+  color: silver;
+  margin: .75rem 0 .25rem 0;
+  text-decoration: underline;
+  text-decoration-thickness: .07rem;
+}
+
 .brick {
   width: 50px;
   height: 75px;

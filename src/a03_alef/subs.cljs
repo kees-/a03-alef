@@ -13,6 +13,11 @@
    (get-in db [:hash-input])))
 
 (re-frame/reg-sub
+ ::base-content
+ (fn [db]
+   (get-in db [:base-content])))
+
+(re-frame/reg-sub
  ::all-content
  (fn [db]
    (get-in db [:content])))

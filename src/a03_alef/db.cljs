@@ -5,5 +5,5 @@
 (def default-db
   {:name "Chip of your mug on the floor"
    :hash-input ""
-   :base-content nil
+   :base-content {}
    :content (->> (router/current-hash) router/navigate (get-in router/routes))})
