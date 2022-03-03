@@ -4,18 +4,29 @@
                                 :children {}}
                            \b {:content [:h4 {:style {:color "limegreen"}}
                                          "Go best friend"]
-                               :children {\∑ {:content
+                               :children {\E {:content []
+                                              :children {}}
+                                          \∑ {:content
                                               [:img {:src "/media/slds.png"}]
                                               :children {}}
                                           \木 {:content []
                                               :children {}}}}
                            "1" {:content []
-                                :children {"z" {:content
-                                                [:video {:src "/media/ps22.mp4"
-                                                         :controls "true"
-                                                         :width "640"
-                                                         :type "video/mp4"
-                                                         :loop "true"}]
+                                :children {"z" {:content [:video
+                                                          {:src "/media/ps22.mp4"
+                                                           :controls "true"
+                                                           :width "640"
+                                                           :type "video/mp4"
+                                                           :loop "true"}]
+                                                :children {}}
+                                           "2" {:content [:iframe
+                                                          {:style {:border-radius "12px"}
+                                                           :src "https://open.spotify.com/embed/playlist/0N7ExG1RxKvhOem7zjHNBr?utm_source=generator&theme=0"
+                                                           :width "100%"
+                                                           :height "380"
+                                                           :frameBorder "0"
+                                                           :allowFullScreen ""
+                                                           :allow "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"}]
                                                 :children {}}}}}}
             "e" {:content [:p "now..."]
                  :children {"e" {:content []
