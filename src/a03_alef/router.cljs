@@ -15,7 +15,7 @@
 (defn set-hash
   "Sets hash-state in the active URI to the given string."
   [path]
-  (set! (.. js/window -location -hash) (str "#" path)))
+  (set! (.. js/window -location -hash) (->> path .toLowerCase (str "#"))))
 
 (defn current-hash
   "(rest) on a hash string will strip the hash and separate all chars to a seq."
