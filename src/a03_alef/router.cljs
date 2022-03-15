@@ -1,7 +1,7 @@
 (ns a03-alef.router
   (:require
    [re-frame.core :as re-frame]
-   [a03-alef.subs :as subs]))
+   [a03-alef.subs :as subs :refer [<sub]]))
 
 ;; ========== DEAL WITH DATA TREE AND URL PATH =================================
 (defn navigate
@@ -31,4 +31,4 @@
        set-hash
        rest
        navigate
-       (get-in @(re-frame/subscribe [::subs/base-content]))))
+       (get-in (<sub [::subs/base-content]))))

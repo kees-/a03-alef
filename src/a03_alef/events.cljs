@@ -1,7 +1,7 @@
 (ns a03-alef.events
   (:require
    [re-frame.core :as re-frame]
-   [a03-alef.subs :as subs]
+   [a03-alef.subs :as subs :refer [<sub]]
    [a03-alef.db :as db]
    [a03-alef.router :as router]))
 
@@ -16,8 +16,8 @@
 (re-frame/reg-event-db
  ::initialize-focus
  (fn [db _]
-   (let [base (re-frame/subscribe [::subs/base-content])
-         parsed (->> (router/current-hash) router/navigate (get-in @base))]
+   (let [base (<sub [::subs/base-content])
+         parsed (->> (<sub [::subs/hash]) router/navigate (get-in base))]
      (assoc-in db [:content] parsed))))
 
 (re-frame/reg-event-db
@@ -45,7 +45,7 @@
 (re-frame/reg-event-db
  ::go-back
  (fn [db [_ pathname]]
-   (let [realpath (->> (router/current-hash)
+   (let [realpath (->> (<sub [::subs/hash])
                        (reduce str)
                        js/decodeURI
                        butlast
