@@ -23,4 +23,4 @@
        set-hash
        rest
        navigate
-       (get-in (<sub [::subs/base-content]))))
+       (get-in (<sub [::subs/tree]))))

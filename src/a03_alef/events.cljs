@@ -16,14 +16,14 @@
 (re-frame/reg-event-db
  ::initialize-focus
  (fn [db _]
-   (let [base (<sub [::subs/base-content])
+   (let [base (<sub [::subs/tree])
          parsed (->> (<sub [::subs/hash]) router/navigate (get-in base))]
      (assoc-in db [:content] parsed))))
 
 (re-frame/reg-event-db
- ::base-content
+ ::tree
  (fn [db [_ input]]
-   (assoc-in db [:base-content] input)))
+   (assoc-in db [:tree] input)))
 
 ;; ========== VIEW / UI ========================================================
 ;; Simple, text field input

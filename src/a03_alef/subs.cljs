@@ -25,9 +25,9 @@
 
 (re-frame/reg-sub
  ::children
- :<- [::all-content]
- (fn [content _]
-   (-> content :children keys)))
+ :<- [::node]
+ (fn [node _]
+   (-> node :children keys)))
 
 (re-frame/reg-sub
  ::children-signatures
@@ -38,36 +38,33 @@
         children)))
 
 (re-frame/reg-sub
- ::base-content
+ ::tree
  (fn [db]
-   (get-in db [:base-content])))
+   (get-in db [:tree])))
 
 (re-frame/reg-sub
- ::base-content-str
- (fn [_ _]
-   (re-frame/subscribe [::base-content]))
+ ::tree-str
+ :<- [::tree]
  (fn [content _]
    (->> content
         pprint
         with-out-str)))
 
 (re-frame/reg-sub
- ::all-content
+ ::node
  (fn [db]
    (get-in db [:content])))
 
 (re-frame/reg-sub
  ::content-focus
- (fn [_ _]
-   (re-frame/subscribe [::all-content]))
- (fn [all-content _]
-   (-> all-content :content)))
+ :<- [::node]
+ (fn [node _]
+   (-> node :content)))
 
 (re-frame/reg-sub
- ::all-content-str
- (fn [_ _]
-   (re-frame/subscribe [::all-content]))
- (fn [content _]
-   (-> content
+ ::node-str
+ :<- [::node]
+ (fn [node _]
+   (-> node
        pprint
        with-out-str)))

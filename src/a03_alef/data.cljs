@@ -7,7 +7,7 @@
 
 (defn handler
   [response]
-  (re-frame/dispatch [::events/base-content response]))
+  (re-frame/dispatch [::events/tree response]))
 
 (defn error-handler
   [response]
