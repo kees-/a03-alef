@@ -2,6 +2,8 @@
   (:require
    [re-frame.core :as re-frame]))
 
+(def <sub (comp deref re-frame.core/subscribe))
+
 (re-frame/reg-sub
  ::name
  (fn [db]

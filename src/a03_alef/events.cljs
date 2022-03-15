@@ -5,6 +5,8 @@
    [a03-alef.db :as db]
    [a03-alef.router :as router]))
 
+(def >evt re-frame.core/dispatch)
+
 ;; DB startup. Provided by default with re-frame.
 (re-frame/reg-event-db
  ::initialize-db
