@@ -17,14 +17,6 @@
   [path]
   (set! (.. js/window -location -hash) (->> path .toLowerCase (str "#"))))
 
-(defn current-hash
-  "(rest) on a hash string will strip the hash and separate all chars to a seq."
-  []
-  (-> js/window
-      .-location
-      .-hash
-      rest))
-
 (defn scoop-hash
   [path]
   (->> path
