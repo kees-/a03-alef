@@ -14,10 +14,10 @@
                            "1" {:content []
                                 :children {"z" {:content [:video
                                                           {:src "/media/ps22.mp4"
-                                                           :controls "true"
+                                                           :controls "controls"
                                                            :width "640"
                                                            :type "video/mp4"
-                                                           :loop "true"}]
+                                                           :loop "loop"}]
                                                 :children {}}
                                            "2" {:content [:iframe
                                                           {:style {:border-radius "12px"}
