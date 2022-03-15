@@ -40,3 +40,14 @@
  ::refocus-hash
  (fn [db [_ pathname]]
    (assoc-in db [:content] (router/scoop-hash pathname))))
+
+;; Compounding the combo hash change / db swap
+(re-frame/reg-event-db
+ ::go-back
+ (fn [db [_ pathname]]
+   (let [realpath (->> (router/current-hash)
+                       (reduce str)
+                       js/decodeURI
+                       butlast
+                       (reduce str))]
+     (re-frame/dispatch [::refocus-hash realpath]))))
