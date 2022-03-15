@@ -32,26 +32,6 @@
             :value "Submit path"
             :on-click #(re-frame/dispatch [::events/refocus-hash @value])}]])
 
-(defn list-children
-  [content]
-  (let [children (-> @content :children keys)]
-    [:div
-     {:style {:float "left"}}
-     (if (nil? children)
-       [:span.b.t "The current node has no children."]
-       [:ul.b
-        (for [li children]
-          [:li {:key li} (.toUpperCase li)])])]))
-
-(defn content-display
-  [content]
-  (let [display (-> @content :content)]
-    [:div.b
-     {:style {:float "left"}}
-     (if (or (nil? display) (empty? display))
-       [:span.t "There is no content at the current node."]
-       display)]))
-
 (defn info-panel
   []
   [:div.b
@@ -112,9 +92,4 @@
        [input-panel value]
        [wythe content]]
       [:div
-       ; [:div
-       ;  {:style {:overflow "hidden"}}
-       ;  [list-children content]
-       ;  [content-display content]]
-       ; [hr]
        [info-panel]]]]))
