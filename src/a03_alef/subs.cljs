@@ -34,7 +34,7 @@
  :<- [::hash]
  :<- [::children]
  (fn [[hash children] _]
-   (map (fn [c] (reduce str (-> hash vec (conj c))))
+   (map (fn [c] (-> hash vec (conj c) ((partial reduce str))))
         children)))
 
 (re-frame/reg-sub
