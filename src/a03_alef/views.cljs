@@ -41,7 +41,7 @@
   (let [display (<sub [::subs/content-focus])]
     [:div.b
      (if (or (nil? display) (empty? display))
-       [:span.t "There is no content at the current node."]
+       [:span.t "There is no content at this node."]
        display)]))
 
 (defn brick
