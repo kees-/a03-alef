@@ -22,6 +22,6 @@
   ;; Notice this:
   ;  The data tree is retrieved with an ajax GET.
   ;  This string should substitute well.
-  (data/load! "/data/tree.edn")
+  (data/load! "data/tree.edn")
   (dev-setup)
   (mount-root))
