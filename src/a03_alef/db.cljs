@@ -7,5 +7,5 @@
    ;; State for the text field input
    :hash-input ""
    ;; Holds an unchanging map with the entire display tree preloaded.
-   :base-content {}
+   :tree {}
    :content {}})

@@ -1,7 +1,7 @@
 (ns a03-alef.router
   (:require
    [re-frame.core :as re-frame]
-   [a03-alef.subs :as subs]))
+   [a03-alef.subs :as subs :refer [<sub]]))
 
 ;; ========== DEAL WITH DATA TREE AND URL PATH =================================
 (defn navigate
@@ -17,18 +17,10 @@
   [path]
   (set! (.. js/window -location -hash) (->> path .toLowerCase (str "#"))))
 
-(defn current-hash
-  "(rest) on a hash string will strip the hash and separate all chars to a seq."
-  []
-  (-> js/window
-      .-location
-      .-hash
-      rest))
-
 (defn scoop-hash
   [path]
   (->> path
        set-hash
        rest
        navigate
-       (get-in @(re-frame/subscribe [::subs/base-content]))))
+       (get-in (<sub [::subs/tree]))))

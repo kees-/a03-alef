@@ -1,13 +1,13 @@
 (ns a03-alef.data
   (:require
-   [a03-alef.events :as events]
+   [a03-alef.events :as events :refer [>evt]]
    [re-frame.core :as re-frame]
    [ajax.core :as ajax]
    [ajax.edn :as edn]))
 
 (defn handler
   [response]
-  (re-frame/dispatch [::events/base-content response]))
+  (>evt [::events/tree response]))
 
 (defn error-handler
   [response]
@@ -16,7 +16,7 @@
 
 (defn callback
   []
-  (re-frame/dispatch [::events/initialize-focus]))
+  (>evt [::events/initialize-focus]))
 
 (defn load!
   [source]
