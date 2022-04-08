@@ -51,3 +51,11 @@
                        butlast
                        (reduce str))]
      (re-frame/dispatch [::refocus-hash realpath]))))
+
+(re-frame/reg-event-db
+ ::handler
+ (fn [db [_ e]]
+   (let [h (->> e .-newURL js/URL. .-hash rest (reduce str))
+         d (->> h router/navigate (get-in (<sub [::subs/tree])))]
+     (assoc-in db [:content] d))))
+

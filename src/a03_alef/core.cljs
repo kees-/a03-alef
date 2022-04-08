@@ -3,7 +3,7 @@
    [reagent.dom :as rdom]
    [re-frame.core :as re-frame]
    [a03-alef.data :as data]
-   [a03-alef.events :as events]
+   [a03-alef.events :as events :refer [>evt]]
    [a03-alef.views :as views]
    [a03-alef.config :as config]))
 
@@ -15,7 +15,8 @@
   (re-frame/clear-subscription-cache!)
   (let [root-el (.getElementById js/document "app")]
     (rdom/unmount-component-at-node root-el)
-    (rdom/render [views/main-panel] root-el)))
+    (rdom/render [views/main-panel] root-el)
+    (.addEventListener js/window "hashchange" #(>evt [::events/handler %]))))
 
 (defn init []
   (re-frame/dispatch-sync [::events/initialize-db])
