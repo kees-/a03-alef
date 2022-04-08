@@ -2,8 +2,7 @@
   (:require
    [re-frame.core :as re-frame]
    [a03-alef.subs :as subs :refer [<sub]]
-   [a03-alef.events :as events :refer [>evt]]
-   [a03-alef.router :as router]))
+   [a03-alef.events :as events :refer [>evt]]))
 
 ;; ========== INDIVIDUAL COMPONENTS ============================================
 (defn hr
